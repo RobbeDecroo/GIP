@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Eigen JS -->
     <script src="../js/input.js"></script>
+    <script src="../js/telnr.js"></script>
 
     <style>
       /*custom font*/
@@ -69,11 +70,24 @@
       border-radius: 3px;
       margin-bottom: 10px;
       width: 100%;
+      height: 100%;
       box-sizing: border-box;
       font-family: montserrat;
       color: #2C3E50;
       font-size: 13px;
       }
+
+      .form-control{
+        margin-bottom: 0px !important;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+      }
+
+      .input-group-addon {
+        padding: 15px;
+        font-size: 13px;
+      }
+
       /*buttons*/
       #msform .action-button {
       width: 100px;
@@ -188,26 +202,29 @@
     	<fieldset>
     		<h2 class="fs-title">Maak je account</h2>
     		<h3 class="fs-subtitle">Met deze gegevens ga je aanmelden</h3>
-    		<input type="text" name="email" id="email" maxlength="120" onclick="checkError(this.id)" placeholder="Email" />
-    		<input type="password" name="pass" id="pass" maxlength="50" onclick="checkError(this.id)" placeholder="Wachtwoord" />
-    		<input type="password" name="cpass" id="cpass" maxlength="50" onclick="checkError(this.id)" placeholder="Bevestig wachtwoord" />
+    		<input type="text" name="email" id="email" maxlength="120" onfocus="checkError(this.id)" placeholder="Email" />
+    		<input type="password" name="pass" id="pass" maxlength="50" onfocus="checkError(this.id)" placeholder="Wachtwoord" />
+    		<input type="password" name="cpass" id="cpass" maxlength="50" onfocus="checkError(this.id)" placeholder="Bevestig wachtwoord" />
     		<input type="button" name="next" id="next" class="next action-button" value="Ga verder" />
     	</fieldset>
     	<fieldset>
     		<h2 class="fs-title">Persoonlijke gegevens</h2>
     		<h3 class="fs-subtitle">We willen graag weten wie u bent</h3>
-    		<input type="text" name="voornaam" maxlength="20" onclick="checkError(this.id)" id="voornaam" placeholder="Voornaam" />
-    		<input type="text" name="achternaam" maxlength="30" onclick="checkError(this.id)" id="achternaam" placeholder="Achternaam" />
-    		<input type="text" name="telnr" maxlength="15" onclick="checkError(this.id)" id="telnr" placeholder="Telefoonnummer" />
+    		<input type="text" name="voornaam" maxlength="20" onfocus="checkError(this.id)" id="voornaam" placeholder="Voornaam" />
+    		<input type="text" name="achternaam" maxlength="30" onfocus="checkError(this.id)" id="achternaam" placeholder="Achternaam" />
+        <div class="input-group">
+          <span class="input-group-addon" id="telnr_addon">+32</span>
+          <input type="text" class="form-control" aria-describedby="telnr_addon" name="telnr" maxlength="15" onfocus="checkError(this.id)" id="telnr" placeholder="Telefoonnummer" />
+        </div>
     		<input type="button" name="previous" class="previous action-button" value="Ga terug" />
     		<input type="button" name="next" id="next" class="next action-button" value="Ga verder" />
     	</fieldset>
     	<fieldset>
     		<h2 class="fs-title">Woonplaats</h2>
     		<h3 class="fs-subtitle">We willen graag weten waar u woont</h3>
-    		<input type="text" name="land" maxlength="50" onclick="checkError(this.id)" id="land" placeholder="Land" />
-    		<input type="text" name="stad" maxlength="50" onclick="checkError(this.id)" id="stad" placeholder="Stad" />
-    		<input type="text" name="straat" maxlength="50" onclick="checkError(this.id)" id="straat" placeholder="Straat en nummer" />
+    		<input type="text" name="land" maxlength="50" onfocus="checkError(this.id)" id="land" placeholder="Land" />
+    		<input type="text" name="stad" maxlength="50" onfocus="checkError(this.id)" id="stad" placeholder="Stad" />
+    		<input type="text" name="straat" maxlength="50" onfocus="checkError(this.id)" id="straat" placeholder="Straat en nummer" />
     		<input type="button" name="previous" class="previous action-button" value="Ga terug" />
     		<input type="button" name="next" id="next" class="next action-button" value="Ga verder" />
     	</fieldset>
@@ -231,8 +248,6 @@
         var land = document.getElementById("land").value;
         var stad = document.getElementById("stad").value;
         var straat = document.getElementById("straat").value.split();
-
-        alert(straat);
 
         var url = "create_account.php?email="+email+"&pass="+pass+"&voornaam="+voornaam+"&achternaam="+achternaam+"&telnr="+telnr+"&land="+land+"&stad="+stad+"&straat="+straat;
         window.location.href=url;

@@ -4,6 +4,8 @@
 
   if(isset($_COOKIE["isRegistered"])){
     //Deze computer heeft al een account aangemaakt
+    header("Location: ../index.php");
+    die();
   } else {
 
     //setcookie("isRegistered", true);
@@ -21,6 +23,8 @@
 
     if($qry->execute()){
       setcookie("isRegistered", true);
+      header("Location: login.php");
+      die();
     }
   }
 
