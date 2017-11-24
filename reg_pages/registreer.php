@@ -14,6 +14,7 @@
     <!-- Eigen JS -->
     <script src="../js/input.js"></script>
     <script src="../js/telnr.js"></script>
+    <script src="../js/letters.js"></script>
 
     <style>
       /*custom font*/
@@ -75,6 +76,10 @@
       font-family: montserrat;
       color: #2C3E50;
       font-size: 13px;
+      }
+
+      .input-group{
+        margin-bottom: 10px;
       }
 
       .form-control{
@@ -210,8 +215,8 @@
     	<fieldset>
     		<h2 class="fs-title">Persoonlijke gegevens</h2>
     		<h3 class="fs-subtitle">We willen graag weten wie u bent</h3>
-    		<input type="text" name="voornaam" maxlength="20" onfocus="checkError(this.id)" id="voornaam" placeholder="Voornaam" />
-    		<input type="text" name="achternaam" maxlength="30" onfocus="checkError(this.id)" id="achternaam" placeholder="Achternaam" />
+    		<input type="text" name="voornaam" class="letters_only" maxlength="20" onfocus="checkError(this.id)" id="voornaam" placeholder="Voornaam" />
+    		<input type="text" name="achternaam" class="letters_only" maxlength="30" onfocus="checkError(this.id)" id="achternaam" placeholder="Achternaam" />
         <div class="input-group">
           <span class="input-group-addon" id="telnr_addon">+32</span>
           <input type="text" class="form-control" aria-describedby="telnr_addon" name="telnr" maxlength="15" onfocus="checkError(this.id)" id="telnr" placeholder="Telefoonnummer" />
@@ -222,8 +227,8 @@
     	<fieldset>
     		<h2 class="fs-title">Woonplaats</h2>
     		<h3 class="fs-subtitle">We willen graag weten waar u woont</h3>
-    		<input type="text" name="land" maxlength="50" onfocus="checkError(this.id)" id="land" placeholder="Land" />
-    		<input type="text" name="stad" maxlength="50" onfocus="checkError(this.id)" id="stad" placeholder="Stad" />
+    		<input type="text" name="land" class="letters_only" maxlength="50" onfocus="checkError(this.id)" id="land" placeholder="Land" />
+    		<input type="text" name="stad" class="letters_only" maxlength="50" onfocus="checkError(this.id)" id="stad" placeholder="Stad" />
     		<input type="text" name="straat" maxlength="50" onfocus="checkError(this.id)" id="straat" placeholder="Straat en nummer" />
     		<input type="button" name="previous" class="previous action-button" value="Ga terug" />
     		<input type="button" name="next" id="next" class="next action-button" value="Ga verder" />
